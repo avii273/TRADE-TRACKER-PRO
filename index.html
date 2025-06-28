@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeTracker Pro | Professional Trading Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-chart-line logo-icon"></i>
+            <h1>TradeTracker Pro</h1>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#" class="nav-item active" data-section="home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" data-section="history">
+            <i class="fas fa-history"></i>
+            <span>History</span>
+        </a>
+        <a href="#" class="nav-item" data-section="favorites">
+            <i class="fas fa-star"></i>
+            <span>Favorites</span>
+        </a>
+        <a href="#" class="nav-item" data-section="portfolio">
+            <i class="fas fa-chart-pie"></i>
+            <span>Portfolio</span>
+        </a>
+        <a href="#" class="nav-item" data-section="recycle-bin">
+            <i class="fas fa-trash"></i>
+            <span>Recycle Bin</span>
+        </a>
+        <a href="#" class="nav-item" id="themeToggle">
+            <i class="fas fa-moon"></i>
+            <span>Dark Mode</span>
+        </a>
+        <div class="slide-to-close">
+            <div class="slider" id="closeSlider"></div>
+            <span>Slide to Close</span>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="mobileThemeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h2 class="section-title">Add New Trade</h2>
+            <div class="welcome-text">
+                <p>Note Down Your Trading journey professionally with us</p>
+            </div>
+            
+            <div class="card">
+                <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control" id="dateInput">
+                    <div class="form-control" id="dateLabel">📆 Select Date</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Time</label>
+                    <input type="time" class="form-control" id="timeInput">
+                    <div class="form-control" id="timeLabel">🕒 Select Time</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Coin Name</label>
+                    <input type="text" class="form-control" id="coinName" placeholder="Enter Coin Name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Margin ($)</label>
+                    <input type="number" class="form-control" id="margin" placeholder="Enter Margin">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Long/Short</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="tradeType" value="long" checked>
+                            <span class="custom-radio"></span>
+                            Long
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tradeType" value="short">
+                            <span class="custom-radio"></span>
+                            Short
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Entry Price</label>
+                    <input type="number" class="form-control" id="entryPrice" placeholder="Enter Trade Entry Price" step="0.0001">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Exit Price</label>
+                    <input type="number" class="form-control" id="exitPrice" placeholder="Enter Trade Exit Price" step="0.0001">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Profit/Loss/Still Running</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="plStatus" value="profit">
+                            <span class="custom-radio"></span>
+                            Profit
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="plStatus" value="loss">
+                            <span class="custom-radio"></span>
+                            Loss
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="plStatus" value="running" checked>
+                            <span class="custom-radio"></span>
+                            Still Running
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Profit/Loss Amount ($)</label>
+                    <input type="number" class="form-control pl-amount" id="plAmount" placeholder="Enter Profit/Loss Amount" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Note</label>
+                    <textarea class="form-control" id="tradeNote" placeholder="Note the reason you opened trade"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Images / pictures</label>
+                    <div class="image-upload">
+                        <div class="upload-box" id="imageUpload1">
+                            <i class="fas fa-plus"></i>
+                            <input type="file" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="upload-box" id="imageUpload2">
+                            <i class="fas fa-plus"></i>
+                            <input type="file" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="upload-box" id="imageUpload3">
+                            <i class="fas fa-plus"></i>
+                            <input type="file" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="addTradeBtn">
+                    <i class="fas fa-plus-circle"></i> Add Trade
+                </button>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="section">
+            <h2 class="section-title">Trade History</h2>
+            
+            <div class="search-bar">
+                <div class="search-input">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search by coin name or profit/loss">
+                </div>
+                <div>
+                    <input type="date" class="form-control" id="dateFilter">
+                </div>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Trades</button>
+                <button class="filter-btn" data-filter="profit">Only Profits</button>
+                <button class="filter-btn" data-filter="loss">Only Losses</button>
+                <button class="filter-btn" data-filter="running">Still Running</button>
+            </div>
+            
+            <div class="trades-grid" id="historyGrid">
+                <!-- Trade cards will be generated here -->
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="section">
+            <h2 class="section-title">Favorite Trades</h2>
+            
+            <div class="trades-grid" id="favoritesGrid">
+                <!-- Favorite trade cards will be generated here -->
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <h2 class="section-title">Portfolio Analysis</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Total Trades</div>
+                    <div class="stat-value" id="totalTrades">0</div>
+                    <div class="stat-subtext">All trades since beginning</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-title">Winning Trades</div>
+                    <div class="stat-value profit" id="winningTrades">0</div>
+                    <div class="stat-subtext" id="winningPercent">0% of all trades</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-profit" id="winningProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-title">Losing Trades</div>
+                    <div class="stat-value loss" id="losingTrades">0</div>
+                    <div class="stat-subtext" id="losingPercent">0% of all trades</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-loss" id="losingProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 style="margin-bottom: 20px;">Profit/Loss Overview</h3>
+                
+                <div class="detail-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Total Profit</div>
+                        <div class="stat-value profit" id="totalProfit">$0.00</div>
+                        <div class="stat-subtext" id="avgProfit">Average profit: $0.00</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Total Loss</div>
+                        <div class="stat-value loss" id="totalLoss">$0.00</div>
+                        <div class="stat-subtext" id="avgLoss">Average loss: $0.00</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Net Profit/Loss</div>
+                        <div class="stat-value" id="netProfit">$0.00</div>
+                        <div class="stat-subtext" id="profitFactor">Profit factor: 0.00</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Still Running</div>
+                        <div class="stat-value" id="runningTrades">0 trades</div>
+                        <div class="stat-subtext" id="runningValue">Current value: $0.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recycle Bin Section -->
+        <section id="recycle-bin" class="section">
+            <h2 class="section-title">Recycle Bin</h2>
+            
+            <div class="trades-grid" id="recycleGrid">
+                <!-- Deleted trade cards will be generated here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Trade Preview Modal -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Trade Details</h3>
+                <div class="modal-close" id="closePreviewModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Trade Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Trade</h3>
+                <div class="modal-close" id="closeEditModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Edit form will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Developed By Avii</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
